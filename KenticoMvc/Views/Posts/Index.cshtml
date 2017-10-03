@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CMS.DocumentEngine.Types.Mvc.Post>
+
+@{
+    ViewBag.Title = "Posts Page";
+}
+
+<div class="row top-bottom-pad-20">
+    Posts - Kentico Object Type: <b>@Model.FirstOrDefault().GetType().ToString()</b>
+</div>
+
+<div class="container bottom-pad-20">
+    <ul class="list-group">
+        @foreach (var post in Model)
+        {
+            <li class="list-group-item">
+                <h3>@post.Fields.Title</h3>
+                @if (post.Fields.Image != null)
+                {
+                    <span class="label label-success">@post.Fields.Image.Name</span>
+                }
+                else
+                {
+                    <span class="label label-danger">No Image Title</span>
+                }
+                        <div>
+                            @post.Fields.Text
+                        </div>
+</li>
+        }
+    </ul>
+</div>
+

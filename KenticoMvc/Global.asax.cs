@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Kentico.Web.Mvc;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -11,6 +8,8 @@ namespace KenticoMvc
     {
         protected void Application_Start()
         {
+            ApplicationConfig.RegisterFeatures(ApplicationBuilder.Current);
+
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
